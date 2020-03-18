@@ -1,5 +1,4 @@
 import React,{Component} from 'react';
-import "./css/CreateTask.css"
 
 class CreateTask extends Component {
     
@@ -48,6 +47,12 @@ class CreateTask extends Component {
                                     id = "inputPrincipal"
                             />
                     </div>
+                    
+                    <p>
+                        <small>
+                                Marca las casillas para indicar, que la tarea ha sido realizada
+                        </small>
+                    </p>
 
                     <div className="form-group">
                             <button className = "btn btn-primary" >
