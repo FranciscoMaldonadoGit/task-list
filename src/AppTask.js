@@ -2,6 +2,7 @@
 import React,{Component} from 'react';
 import  CreateTask from './components/CreateTask.js';
 import  ListTask from './components/ListTask.js';
+import "./components/css/AppTask.css"
 
 class AppTask extends Component{
 
@@ -36,18 +37,19 @@ class AppTask extends Component{
                   this.setState({ items: itemModify });
     }
 
-    render(){  
-        
+    render(){        
         //debugger; 
         localStorage.setItem("SessionTareas", JSON.stringify(this.state.items) )
          
         return (
-            <div>
-                  <CreateTask  onHandleTakeText = {this.handleTakeText} />
-                   {/*tareas pendientes*/}
-                  <ListTask  items = {  this.state.items.filter( x => x.pendingOrDone == false ) } handleSendTaskWithUpdateF  = { this.handleSendTaskWithUpdateF  } />
-                  {/*tareas realizadas */}
-                  <ListTask  items = {  this.state.items.filter( x => x.pendingOrDone == true ) } handleSendTaskWithUpdateF  = { this.handleSendTaskWithUpdateF  } />
+              
+            <div className = "container"  style = {{ paddingTop : "30px"}} >                      
+                        <CreateTask  onHandleTakeText = {this.handleTakeText} />
+
+                        {/*tareas pendientes*/}
+                        <ListTask  pendingOrDone = {0}  items = {  this.state.items.filter( x => x.pendingOrDone == false ) } handleSendTaskWithUpdateF  = { this.handleSendTaskWithUpdateF  } />
+                        {/*tareas realizadas */}
+                        <ListTask  pendingOrDone = {1} items = {  this.state.items.filter( x => x.pendingOrDone == true ) } handleSendTaskWithUpdateF  = { this.handleSendTaskWithUpdateF  } />
             </div>
         );
         

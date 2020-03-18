@@ -24,27 +24,37 @@ class LisTask extends Component {
             return 0;
       });
 
-        return  <ol style = { { listStyleType: "none" } }  >
-                    { items.map(item => (
-                            <li key={item.id}>
-                                {/*item.nameTaskText*/}
-                                <CheckBox  
-                                    nameTaskText = { item.nameTaskText }  
-                                    id  = { item.id }
-                                    onSendTaskWithUpdate = { this.handleSendTaskWithUpdate }    
-                                    isSelected =   { item.pendingOrDone }
-                                />
-                            </li>
-                    )) }
-                </ol>
+        return  <div>   
+                    <label>
+                           <h6> { this.props.pendingOrDone == 1 ?  "TAREAS REALIZADAS" : "TAREAS PENDIENTES" } </h6> 
+                            <ol style = { { listStyleType: "none" } }  >
+                                { items.map(item => (
+                                        <li key={item.id}>
+                                            {/*item.nameTaskText*/}
+                                            <CheckBox  
+                                                nameTaskText = { item.nameTaskText }  
+                                                id  = { item.id }
+                                                onSendTaskWithUpdate = { this.handleSendTaskWithUpdate }    
+                                                isSelected =   { item.pendingOrDone }
+                                            />
+                                        </li>
+                                )) }
+                            </ol>
+                    </label>
+                </div>
     }
 
     NoIterando (){
-        return <ol  style = { { listStyleType: "none" } }  >
-                    <li key ="0"  >
-                        No existen tareas
-                    </li>
-                </ol> 
+                return <div>
+                    <label >
+                       <h6> { this.props.pendingOrDone == 1 ?  "TAREAS REALIZADAS" : "TAREAS PENDIENTES" } </h6> 
+                        <ol  style = { { listStyleType: "none" } }  >
+                            <li key ="0"  style={{color: 'red'}}  >
+                                No existen tareas
+                            </li>
+                        </ol> 
+                    </label>
+                </div>
     }
 
     render() { 

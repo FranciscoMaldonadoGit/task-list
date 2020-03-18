@@ -18,18 +18,22 @@ class CheckBox extends Component {
 
     render(){            
         return (
-            <div>
-                <label>
+            <div  >
+                <label  > 
+
                         <input
-                            type="checkbox"
-                            name={this.props.nameTaskText}
-                            checked= {this.state.isSelected}
-                            onChange={this.handleCheckboxChange}
-                            //className="form-check-input"
-                            id= { this.props.id }
+                                type="checkbox"
+                                name={this.props.nameTaskText}
+                                checked= {this.state.isSelected}
+                                onChange={this.handleCheckboxChange}
+                                //className="custom-control-input"
+                                id= { this.props.id }
                         />
-                        {this.props.nameTaskText}
+
+                        {"  "+this.props.nameTaskText}
+
                 </label>
+
             </div>
         );
         

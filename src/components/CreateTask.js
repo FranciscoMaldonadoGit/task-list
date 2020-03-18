@@ -1,11 +1,11 @@
 import React,{Component} from 'react';
+import "./css/CreateTask.css"
 
 class CreateTask extends Component {
     
       constructor(props) {
             super(props);
             this.state = { 
-                 //items: [], 
                  nameTaskText: ""
             };
 
@@ -37,23 +37,25 @@ class CreateTask extends Component {
         
         render() {
             return (
-
                 <form  onSubmit={this.handleSubmit} >
+                   
+                    <div className="form-group">
+                            <input  type="text" 
+                                    placeholder="nombre de tarea" 
+                                    onChange = { this.handleChange } 
+                                    value={this.state.nameTaskText}
+                                    className="form-control" 
+                                    id = "inputPrincipal"
+                            />
+                    </div>
 
-                    <input  type="text" 
-                            placeholder="nombre de tarea ... " 
-                            onChange = { this.handleChange } 
-                            value={this.state.nameTaskText}
-                    />
-
-                    {' '}
-
-                    <button>
-                        Agregar
-                    </button>
+                    <div className="form-group">
+                            <button className = "btn btn-primary" >
+                                Nueva tarea
+                            </button>
+                    </div>
 
                 </form>
-
             );
         }
 
